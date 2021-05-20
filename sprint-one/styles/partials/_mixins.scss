@@ -1,0 +1,18 @@
+@mixin flex{
+    display: flex;
+}
+
+@mixin flex-center{
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin no-dots{
+    list-style: none;
+    padding: 0;
+}
+
+@mixin no-text-decoration{
+    text-decoration: none;
+    
+}
