@@ -35,7 +35,7 @@ body{
         height: 20px;
     }
 
-    &__list{
+    &__container{
         @include flex;
     }
 
@@ -46,13 +46,44 @@ body{
         margin:0;
         width: 100%;
         justify-content: space-around;
-        border-bottom: 0.313rem dotted $White;
-    }
+        border-bottom: 0.313rem solid $BandSite-Black;
+        
+        &:hover{
+            border-bottom: 0.313rem solid $White;
+            color: $White;
+        }
 
+        &--active{
+            border-bottom: 0.313rem solid $White;
+        }
+        &--inactive{
+            border-bottom: 0.313rem solid $BandSite-Black;
+        }
+        
+    }
+    
     &__link{
         @include no-text-decoration;
-        font:$mSection-Header;
-        color: $White;
+        font: $mSubheader;
+        color: $White;r
+        
+        &--inactive{
+            color:$Mercury;
+        }
     }
 }
 
+.hero{
+    @include flex;
+    background-image: url(../assets/images/hero-bio.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no repeat;
+    background-color: $BandSite-Black;
+    color: $White;
+
+    &__background{
+        background-color:$BandSite-Black;
+        opacity: 50%;
+    }
+}

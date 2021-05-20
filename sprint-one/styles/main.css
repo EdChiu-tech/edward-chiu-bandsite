@@ -3,41 +3,23 @@
 /* ---- Mobile ----*/
 @font-face {
   font-family: "Avenir";
-  src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf) format("otf");
+  src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
-  src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf) format("otf");
+  src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf);
   font-weight: demi;
   font-style: normal;
 }
 @font-face {
   font-family: "Avenir";
-  src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf) format("otf");
+  src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf);
   font-weight: bold;
   font-style: normal;
 }
 /* ---- Mobile ---- */
-.page-header {
-  font-family: "Avenir";
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.section-header {
-  font-family: "Avenir";
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.subheader {
-  font-family: "Avenir";
-  font-weight: demi;
-  font-size: 0.875;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -67,7 +49,7 @@ body {
   width: 120px;
   height: 20px;
 }
-.main-nav__list {
+.main-nav__container {
   display: flex;
 }
 .main-nav__item {
@@ -78,10 +60,37 @@ body {
   margin: 0;
   width: 100%;
   justify-content: space-around;
-  border-bottom: 0.313rem dotted #FFF;
+  border-bottom: 0.313rem solid #323232;
+}
+.main-nav__item:hover {
+  border-bottom: 0.313rem solid #FFF;
+  color: #FFF;
+}
+.main-nav__item--active {
+  border-bottom: 0.313rem solid #FFF;
+}
+.main-nav__item--inactive {
+  border-bottom: 0.313rem solid #323232;
 }
 .main-nav__link {
   text-decoration: none;
-  font: 700 1.5rem "Avenir";
+  font: demi 0.875rem "Avenir";
   color: #FFF;
+}
+r .main-nav__link--inactive {
+  color: #E1E1E1;
+}
+
+.hero {
+  display: flex;
+  background-image: url(../assets/images/hero-bio.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no repeat;
+  background-color: #323232;
+  color: #FFF;
+}
+.hero__background {
+  background-color: #323232;
+  opacity: 50%;
 }/*# sourceMappingURL=main.css.map */

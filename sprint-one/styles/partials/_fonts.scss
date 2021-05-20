@@ -2,43 +2,25 @@
 
 @font-face{
     font-family:"Avenir";
-    src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf) format("otf");
+    src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf);
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face{
     font-family:"Avenir";
-    src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf) format("otf");
+    src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf);
     font-weight: demi;
     font-style: normal;
 }
 
 @font-face{
     font-family:"Avenir";
-    src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf) format("otf");
+    src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf);
     font-weight: bold;
     font-style: normal;
 }
 
 /* ---- Mobile ---- */
-.page-header{
-    font-family:"Avenir";
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.section-header{
-    font-family:"Avenir";
-    font-weight: bold;
-    font-size: 1.5rem;
-}
-
-.subheader{
-    font-family:"Avenir";
-    font-weight: demi;
-    font-size: 0.875;
-}
-
-$mSection-Header: 700 1.5rem "Avenir";
-$mSubheader: 600  0.875rem "Avenir";
+$mSection-Header: bold 1.5rem "Avenir";
+$mSubheader: demi  0.875rem "Avenir";
