@@ -80,6 +80,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .main-nav__item {
+    display: flex;
     padding: 0;
     margin: 0 1.5rem;
     align-items: center;
@@ -87,7 +88,6 @@ body {
 }
 .main-nav__item:hover {
   border-bottom: 0.188rem solid #FFF;
-  color: #FFF;
 }
 .main-nav__item--active {
   border-bottom: 0.188rem solid #FFF;
@@ -101,8 +101,11 @@ body {
   font-size: 1rem;
   color: #FFF;
 }
+.main-nav__link:hover {
+  color: #FFF;
+}
 .main-nav__link--active {
-  font-weight: 700;
+  font-weight: 600;
 }
 .main-nav__link--inactive {
   color: #E1E1E1;
@@ -196,11 +199,7 @@ body {
 @media screen and (min-width: 768px) {
   .bio__title {
     padding-bottom: 2.25rem;
-    font: 700 3.75rem/4.25rem "Avenir";
-  }
-}
-@media screen and (min-width: 1280px) {
-  .bio__title {
+    font: 700 2.25rem/2.75rem "Avenir";
     font-weight: 600;
   }
 }
@@ -222,12 +221,6 @@ body {
 @media screen and (min-width: 768px) {
   .bio__img {
     padding-bottom: 2.25rem;
-    height: 40%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .bio__img {
-    height: 50%;
   }
 }
 .bio__motto {
@@ -434,14 +427,14 @@ body {
   .footer__cards-container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    width: 100%;
   }
 }
 .footer__cards {
   display: flex;
   flex-direction: column;
   color: #FFF;
-  margin-right: 55px;
+  margin-right: 3.5rem;
 }
 .footer__cards-title {
   padding-top: 1.5rem;

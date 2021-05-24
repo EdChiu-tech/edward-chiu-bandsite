@@ -65,6 +65,7 @@ body{
         border-bottom: 0.188rem solid $BandSite-Black;
 
             @include tablet{
+                @include flex;
                 padding: 0;
                 margin: 0 1.5rem;
                 align-items: center;
@@ -72,7 +73,6 @@ body{
         
         &:hover{
             border-bottom: 0.188rem solid $White;
-            color: $White;
         }
 
         &--active{
@@ -80,8 +80,7 @@ body{
         }
         &--inactive{
             border-bottom: 0.188rem solid $BandSite-Black;
-        }
-        
+        }       
     }
     
     &__link{
@@ -90,8 +89,12 @@ body{
         font-size: 1rem;
         color: $White;
 
+        &:hover{
+            color: $White;
+        }
+
         &--active{
-            font-weight: 700;
+            font-weight: 600;
         }
         
         &--inactive{
@@ -179,9 +182,7 @@ body{
 
         @include tablet{
             @include tHeadPadding-Bottom;
-            font:$tPage-Header;
-        }
-        @include desktop{
+            font: $tSection-Header;
             font-weight: 600;
         }
     }
@@ -203,12 +204,7 @@ body{
 
         @include tablet{
             @include tContentPadding-Bottom;
-            height: 40%;
-        }
-        
-        @include desktop{
-            height: 50%;
-        }
+        }        
     }
 
     &__motto{
@@ -409,7 +405,7 @@ body{
         @include tablet{
             @include flex;
             flex-direction: row;
-            justify-content: flex-start;
+            width: 100%;
         }
     }
     
@@ -419,7 +415,7 @@ body{
         color: $White;
         
         @include tablet;
-            margin-right: 55px;
+            margin-right: 3.5rem;
 
         &-title{
             @include mHeadPadding-Top;
