@@ -1,0 +1,202 @@
+/* ---- Primary Colors ---- */
+/* --- Secondary Colors ----*/
+/* ---- Tablet ----*/
+@font-face {
+  font-family: "Avenir";
+  src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf);
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf);
+  font-weight: bold;
+  font-style: normal;
+}
+.bio {
+  width: 100%;
+  height: auto;
+  padding: 1.5rem 1rem 1rem 1rem;
+}
+@media screen and (min-width: 768px) {
+  .bio {
+    padding-top: 3rem;
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio {
+    padding-left: 7rem;
+    padding-right: 7rem;
+    padding-bottom: 2.25rem;
+    padding-top: 4rem;
+  }
+}
+.bio__title {
+  padding-bottom: 1rem;
+  margin: 0;
+  font: 700 1.5rem/2.125rem "Avenir";
+}
+@media screen and (min-width: 768px) {
+  .bio__title {
+    padding-bottom: 2.25rem;
+    font: 700 2.25rem/2.75rem "Avenir";
+    font-weight: 600;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio__container {
+    padding: 0 4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio__container {
+    padding: 0 8rem;
+  }
+}
+.bio__img {
+  padding-bottom: 1rem;
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 768px) {
+  .bio__img {
+    padding-bottom: 2.25rem;
+  }
+}
+.bio__motto {
+  padding-bottom: 1rem;
+  margin: 0;
+  font: 600 0.875rem/1.375rem "Avenir";
+  font-size: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .bio__motto {
+    font: 600 1.5rem/2rem "Avenir";
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio__motto {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio__motto--small {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio__body {
+    padding: 0 4rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bio__body {
+    padding: 0 8rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .bio__body-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.bio__subtitle {
+  padding-bottom: 1rem;
+  font: 600 0.875rem/1.375rem "Avenir";
+  margin: 0;
+  padding-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .bio__subtitle {
+    padding-top: 2.25rem;
+    font: 600 1.5rem/2rem "Avenir";
+  }
+}
+.bio__body-copy {
+  padding-bottom: 1rem;
+  font: 400 0.813rem/1.125rem "Avenir";
+  width: 100%;
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .bio__body-copy {
+    font: 400 0.875rem/1.375rem "Avenir";
+    padding-right: 1.5rem;
+  }
+}
+.bio__body-copy--no-padding {
+  padding: 0;
+}
+@media screen and (min-width: 768px) {
+  .bio__body-copy--no-padding {
+    padding-left: 1.5rem;
+  }
+}
+
+.gallery {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #FAFAFA;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .gallery {
+    padding-left: 2.25rem;
+    padding-right: 2.25rem;
+    padding-bottom: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}
+.gallery__header {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+  font: 700 1.5rem/2.125rem "Avenir";
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .gallery__header {
+    font: 700 2.25rem/2.75rem "Avenir";
+    font-weight: 600;
+  }
+}
+@media screen and (min-width: 768px) {
+  .gallery__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+.gallery__img {
+  padding-bottom: 1rem;
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+}
+.gallery__img:hover {
+  filter: grayscale(0%);
+  transition-property: filter;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+}
+@media screen and (min-width: 768px) {
+  .gallery__img {
+    padding-bottom: 3%;
+    width: 31%;
+  }
+  .gallery__img--no-padding {
+    padding: 0;
+  }
+}/*# sourceMappingURL=bio.css.map */

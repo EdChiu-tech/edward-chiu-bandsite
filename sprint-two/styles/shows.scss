@@ -1,0 +1,43 @@
+@use "./partials/colors" as *;
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/fonts" as *;
+
+*{
+    box-sizing: border-box;
+    // overflow-x: hidden;
+}
+
+body{
+    margin:0;
+}
+
+
+.hero__content-container{
+    @include flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    color: $White;
+    padding-left: 1rem;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+
+
+.hero__title--show{
+    color: $White;
+    font: $mPage-Header;
+    margin: 0;
+
+}
+
+.hero__heading{    
+@include flex;
+align-items: center;
+font: $mSubheader;
+margin: 0;
+}

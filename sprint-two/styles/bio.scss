@@ -1,0 +1,183 @@
+@use "./partials/colors" as *;
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/fonts" as *;
+
+
+
+.bio{
+    width: 100%;
+    height: auto;
+    padding: 1.5rem 1rem 1rem 1rem;
+
+        @include tablet{
+            @include tHeadPadding-Top;
+            @include tPadding-Sides;
+        }
+
+        @include desktop{
+            @include dPadding-Sides;
+            @include tHeadPadding-Bottom;
+            padding-top: 4rem;
+        }
+
+    &__title{
+        @include mHeadPadding-Bottom;
+        margin: 0;
+        font: $mPage-Header;
+
+        @include tablet{
+            @include tHeadPadding-Bottom;
+            font: $tSection-Header;
+            font-weight: 600;
+        }
+    }
+
+    &__container{
+        @include tablet{
+            padding: 0 4rem;
+        }
+
+        @include desktop{
+            padding: 0 8rem;
+        }
+    }
+
+    &__img{
+        @include mContentPadding-Bottom;
+        width: 100%;
+        height: auto;
+
+        @include tablet{
+            @include tContentPadding-Bottom;
+        }        
+    }
+
+    &__motto{
+        @include mContentPadding-Bottom;
+        margin: $No-Margin;
+        font: $mSubheader;
+        font-size: 1rem;
+
+        @include tablet{
+            font: $tSubHeader;
+        }
+
+        @include desktop{
+            width: 80%;
+        }
+        
+        &--small{
+            @include tablet{
+                font-size: 1rem;
+            }
+        }
+    }
+    
+    &__body{
+        @include tablet{
+            padding: 0 4rem;
+        }
+
+        @include desktop{
+            padding: 0 8rem;
+        }
+
+        &-container{
+            @include tablet{
+                @include flex;
+                justify-content: space-between;
+            }
+        }
+    }
+    
+    &__subtitle{
+        @include mContentPadding-Bottom;
+        font: $mSubheader;
+        margin: 0;
+        padding-top: 1rem;
+
+        @include tablet{
+            @include tContentPadding-Top;
+            font: $tSubHeader;
+        }
+    }
+
+    &__body-copy{
+        @include mContentPadding-Bottom;
+        font: $mCopy;
+        width: 100%;
+        margin:0;
+
+        @include tablet{
+            font: $tBodyCopy;
+            padding-right: 1.5rem;
+        }
+
+        &--no-padding{
+            padding:0;
+
+            @include tablet{
+                padding-left: 1.5rem;
+            }
+        }
+    }
+}
+
+.gallery{
+    @include Padding-Sides;
+    background-color:$Alabaster;
+    width: 100%;
+
+        @include tablet{
+            @include tPadding-Sides;
+            @include tContentPadding-Bottom;
+        }
+
+        @include desktop{
+            @include dPadding-Sides;
+        }
+
+    &__header{
+        @include mHeadPadding-Top;
+        @include mContentPadding-Bottom;
+        font: $mPage-Header;
+        margin: 0;
+
+        @include tablet{
+            font: $tSection-Header;
+            font-weight: 600;
+        }
+    }
+
+    &__container{
+        @include tablet{
+            @include flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
+
+    &__img{
+    @include mContentPadding-Bottom;
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+
+    &:hover{
+        filter: grayscale(0%);
+        transition-property: filter;
+        transition-duration: 0.5s;
+        transition-timing-function: ease-in-out;
+    }
+
+        @include tablet{
+            padding-bottom: 3%;
+            width: 31%;
+
+            &--no-padding{
+                padding:0;
+            }
+        }
+    }
+}
