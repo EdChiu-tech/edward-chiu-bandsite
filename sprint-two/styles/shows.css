@@ -40,16 +40,18 @@ body {
   width: 100%;
   z-index: 10;
 }
-
 .hero__title--show {
   color: #FFF;
   font: 700 1.5rem/2.125rem "Avenir";
   margin: 0;
 }
-
 .hero__heading {
   display: flex;
   align-items: center;
   font: 600 0.875rem/1.375rem "Avenir";
   margin: 0;
+}
+.hero__iframe-container {
+  width: 95%;
+  height: auto;
 }/*# sourceMappingURL=shows.css.map */

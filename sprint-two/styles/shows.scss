@@ -13,31 +13,39 @@ body{
 }
 
 
-.hero__content-container{
-    @include flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    position: absolute;
-    color: $White;
-    padding-left: 1rem;
-    margin: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 10;
-}
+.hero{
 
+    &__content-container{
+        @include flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        position: absolute;
+        color: $White;
+        padding-left: 1rem;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+    }
 
-.hero__title--show{
-    color: $White;
-    font: $mPage-Header;
-    margin: 0;
+        &__title--show{
+        color: $White;
+        font: $mPage-Header;
+        margin: 0;
 
-}
+    }
 
-.hero__heading{    
-@include flex;
-align-items: center;
-font: $mSubheader;
-margin: 0;
+        &__heading{    
+        @include flex;
+        align-items: center;
+        font: $mSubheader;
+        margin: 0;
+    }
+
+        &__iframe-container{
+            width: 95%;
+            height: auto;
+        }
+
 }

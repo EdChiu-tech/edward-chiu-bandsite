@@ -106,15 +106,15 @@ body{
 .hero{
     @include flex;
     position: relative;
-    height: 55vw;
+    height: 40vh;
     width: 100%;
 
         @include tablet{
-            height: 55vw;
+            height: 55vh;
         }
 
         @include desktop{
-            height: 50vw;
+            height: 50vh;
         }
 
     &__background--img{

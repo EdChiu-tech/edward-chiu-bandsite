@@ -114,17 +114,17 @@ body {
 .hero {
   display: flex;
   position: relative;
-  height: 55vw;
+  height: 40vh;
   width: 100%;
 }
 @media screen and (min-width: 768px) {
   .hero {
-    height: 55vw;
+    height: 55vh;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero {
-    height: 50vw;
+    height: 50vh;
   }
 }
 .hero__background--img {
