@@ -13,6 +13,7 @@ const newElementId = (elementName, IdName) =>{
 const main = document.querySelector("main")
 const footer = document.querySelector("footer")
 
+
 // Comment Container div
 
     const commentDiv= newElementClass("div", "comment")
@@ -35,12 +36,13 @@ const footer = document.querySelector("footer")
 // Form - Name  
     let labelName = newElementClass("label", "form__header")
     labelName.innerText = "Name"
-    labelName.setAttribute("for", "name")
+    labelName.setAttribute("for", "userName")
     form.append(labelName)
 
     let inputName = newElementId("input", "form__input")
     inputName.setAttribute("type", "text")
-    inputName.setAttribute("id", "name")
+    inputName.setAttribute("id", "userName")
+    inputName.setAttribute("name", "userName")
     inputName.setAttribute("placeholder", "Enter your name")
     form.append(inputName)
 
@@ -54,6 +56,7 @@ const footer = document.querySelector("footer")
     let inputComm = newElementId("input", "form__input")
     inputComm.setAttribute("type", "text")
     inputComm.setAttribute("id", "input")
+    inputComm.setAttribute("name", "input")
     inputComm.setAttribute("placeholder", "Add a new comment")
     form.append(inputComm)
 
@@ -81,9 +84,60 @@ let commentsArray = [
         name: "Miles Acosta",
         date: "12/20/2020",
         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-     },
-
+    },
+    
 ]
+
+// Container for all comments
 
 const commentContainerDiv = newElementClass("div", "comment__container")
 commentDiv.append(commentContainerDiv)
+
+// Cards for each comment
+
+const createCard = (comments) =>{
+    
+    for (let i = 0; i < comments.length; i++){
+
+        const commentCard = newElementClass("article", "comment__card");
+        
+        let cardUser = newElementClass("h3", "comment__user");
+        cardUser.innerText = comments[i].name;
+        commentCard.append(cardUser);
+        
+        let cardDate = newElementClass("span", "comment__date");
+        cardDate.innerText = comments[i].date;
+        commentCard.append(cardDate);
+        
+        let cardComment = newElementClass("p", "comment__content");
+        cardComment.innerText = comments[i].comment;
+        commentCard.append(cardComment);
+        
+        commentContainerDiv.append(commentCard);
+    }
+}
+
+createCard(commentsArray);
+
+//  Grab user input and replace default comments
+
+const formContainer = document.querySelector(".form")
+
+const displayComment = (event) =>{
+    event.preventDefault();
+
+    commentContainerDiv.innerHTML = "";
+    
+    let userComment = {
+        name: event.target.userName.value,
+        date: event.placeholder,
+        comment: event.target.input.value,
+    }
+    commentsArray.unshift(userComment);
+    commentsArray.pop();
+    createCard(commentsArray);
+    formContainer.reset();
+}
+
+formContainer.addEventListener("submit", displayComment);
+
