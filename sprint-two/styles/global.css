@@ -120,12 +120,12 @@ body {
 }
 @media screen and (min-width: 768px) {
   .hero {
-    height: 55vh;
+    height: 60vw;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero {
-    height: 50vh;
+    height: 40vw;
   }
 }
 .hero__background--img {

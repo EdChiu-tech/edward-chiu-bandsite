@@ -110,11 +110,11 @@ body{
     width: 100%;
 
         @include tablet{
-            height: 55vh;
+            height: 60vw;
         }
 
         @include desktop{
-            height: 50vh;
+            height: 40vw;
         }
 
     &__background--img{

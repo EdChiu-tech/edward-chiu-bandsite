@@ -67,7 +67,8 @@ body{
             height: auto;
 
             @include tablet{
-                width: 50%
+                width: 50%;
+                max-width: 650px; 
             }
 
             @include desktop{
@@ -249,6 +250,7 @@ body{
             position: absolute;
             top: -40px;
         }
+        
         @include desktop{
             position: absolute;
             top: -50px;

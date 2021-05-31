@@ -344,6 +344,10 @@
         width: 100%;
         padding-left: 0.875rem;
 
+            @include tablet{
+                padding-left: 1rem;
+            }
+
     }
 
     &__header{
@@ -366,6 +370,10 @@
         min-height: 36px;
         border: 1px solid $Mercury;
 
+        @include tablet{
+            min-height: 48px;
+        }
+
         &--error{
             border-color:$Error;
         }
@@ -387,7 +395,6 @@
          
     }
 
-    
     #input{
         height:7rem;
     }

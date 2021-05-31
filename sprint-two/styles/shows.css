@@ -82,6 +82,7 @@ body {
 @media screen and (min-width: 768px) {
   .hero__iframe-container {
     width: 50%;
+    max-width: 650px;
   }
 }
 @media screen and (min-width: 1280px) {

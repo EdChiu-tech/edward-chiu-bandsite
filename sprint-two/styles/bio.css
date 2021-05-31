@@ -359,6 +359,11 @@
   width: 100%;
   padding-left: 0.875rem;
 }
+@media screen and (min-width: 768px) {
+  .form__comment-container {
+    padding-left: 1rem;
+  }
+}
 .form__header {
   font: 700 0.625rem/1.25rem "Avenir";
   font-weight: normal;
@@ -377,6 +382,11 @@
   border-radius: 4px;
   min-height: 36px;
   border: 1px solid #E1E1E1;
+}
+@media screen and (min-width: 768px) {
+  .form__field {
+    min-height: 48px;
+  }
 }
 .form__field--error {
   border-color: #D22D2D;
