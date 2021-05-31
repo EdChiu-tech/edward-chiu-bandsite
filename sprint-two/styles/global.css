@@ -1,6 +1,5 @@
 /* ---- Primary Colors ---- */
 /* --- Secondary Colors ----*/
-/* ---- Tablet ----*/
 @font-face {
   font-family: "Avenir";
   src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf);
@@ -19,6 +18,8 @@
   font-weight: bold;
   font-style: normal;
 }
+/* ---- Mobile ---*/
+/* ---- Tablet ----*/
 * {
   box-sizing: border-box;
 }
@@ -279,7 +280,7 @@ body {
 }
 .footer__cards-body {
   padding-bottom: 1rem;
-  font: 400 0.813rem/1.125rem "Avenir";
+  font: 400 0.813rem/1.375rem "Avenir";
   margin: 0;
   width: 100%;
 }
@@ -327,7 +328,7 @@ body {
   }
 }
 .footer__copyright {
-  font: 400 0.813rem/1.125rem "Avenir";
+  font: 400 0.813rem/1.375rem "Avenir";
   color: #FFF;
   margin: 0;
 }

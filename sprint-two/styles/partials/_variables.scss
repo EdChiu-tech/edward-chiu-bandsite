@@ -1,3 +1,12 @@
+@use "./colors" as *;
+@use "./mixins" as *;
+@use "./fonts" as *;
+
+
 $No-Margin: 0;
 
+/* ---- Mobile ---*/
+$mDivider: 1px solid $Mercury;
+
 /* ---- Tablet ----*/
+$tDivider: 2px solid $Mercury;

@@ -27,12 +27,25 @@ body{
         height: 100%;
         width: 100%;
         z-index: 10;
+
+        @include tablet{
+            padding: 0 3rem;
+        }
+
+        @include desktop{
+            flex-direction: row;
+            align-items: center;
+        }
     }
 
         &__title--show{
         color: $White;
         font: $mPage-Header;
         margin: 0;
+
+        @include tablet{
+            font: $tPage-Header;
+        }
 
     }
 
@@ -41,11 +54,212 @@ body{
         align-items: center;
         font: $mSubheader;
         margin: 0;
+        padding: 1rem 0;
+
+        @include tablet{
+            font: $tSection-Header;
+        }
     }
 
         &__iframe-container{
-            width: 95%;
+            padding: 1rem 1rem 1rem 0;
+            width: 100%;
             height: auto;
+
+            @include tablet{
+                width: 50%
+            }
+
+            @include desktop{
+                padding: 3rem;
+            }
+        }
+}
+
+.shows{
+    @include flex;
+    flex-direction: column;
+    padding: 1rem;
+    width: 100%;
+    justify-content: space-between;
+
+
+    @include tablet{
+        padding: 3rem;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+        @include desktop{
+            @include dPadding-Sides;
+            flex-direction: row;
+
         }
 
+    &__container{
+        width: 100%;
+
+        @include desktop{
+            @include tHeadPadding-Top;
+        }
+
+        &-date{
+
+            @include tablet{
+            width: 20%;
+            margin-right: 3rem;
+            }
+
+            @include desktop{
+                align-items: flex-end;
+            }
+        }
+
+        &-venue{
+
+            @include tablet{
+            width: 20%;
+            margin-right: 5rem;
+            text-align: left;
+            }
+        }
+
+        &-location{
+
+            @include tablet{
+            width: 20%;
+            margin-right: 3rem;
+
+            }        
+        }
+
+    }
+
+    &__card{
+        @include flex;
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: $mDivider;
+        width: 100%;
+
+        @include tablet{
+            width: 100%;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    
+    &__header{
+        @include mHeadPadding-Top;
+        margin: $No-Margin;
+        font: $mPage-Header;
+
+        @include tablet{
+            padding: 0 0 3rem 0;
+            font: $tSection-Header;
+        }
+
+        @include desktop{
+            margin-right: 7rem;
+        }
+    }
+
+    &__subheader{
+        @include mContentPadding-Top;
+        padding-bottom: 0.5rem;
+        margin:$No-Margin;
+        font: $mLabelsButtons;
+        color: $Silver;
+
+        @include tablet{
+            padding-bottom: 1rem;
+            font: $tLabelsButtons;
+        }
+    }
+
+    &__date{
+        padding-bottom: 0.5rem;
+        margin:$No-Margin;
+        font: $mSubheader;
+        color: $BandSite-Black;
+
+        @include tablet{
+            padding-bottom: 1rem;
+            font: $tBodyCopy;
+            font-weight: 600;
+        }
+
+        @include desktop{
+            padding: 0;
+        }
+    }
+
+    &__venue{
+        margin:$No-Margin;
+        font: $mCopy;
+
+        @include tablet{
+            font: $tBodyCopy;
+        }
+    }
+
+    &__location{
+        font: $mCopy;
+        margin: $No-Margin;
+
+    }
+    
+    &__button{
+        margin: 1rem 0;
+        padding: 0.5rem 2rem;
+        border: none;
+        border-radius: 4px;
+        background-color:$BandSite-Black;
+        font: $mLabelsButtons;
+        color: $Mercury;
+        height: 2.5rem;
+        min-width: 9.375rem;
+        width: 100%;
+
+        @include tablet{
+            max-width: 150px;
+            font: $tLabelsButtons;
+        }
+
+        
+        @include desktop{
+            max-width: 150px;
+        }
+
+        &:hover{
+            background-color: $BandSite-Dark;
+        }
+    }
+}
+
+.object{
+    &--show{
+        padding-bottom: 1rem;
+
+        @include tablet{
+            position: absolute;
+            top: -40px;
+        }
+        @include desktop{
+            position: absolute;
+            top: -50px;
+        }
+
+    }
+
+    &--hidden{
+        @include tablet{
+            visibility: hidden;
+            padding: 0;
+        }
+    }
 }

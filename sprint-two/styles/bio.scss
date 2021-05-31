@@ -181,3 +181,241 @@
         }
     }
 }
+
+
+.comment{
+    @include mHeadPadding-Top;
+    padding: 0 1rem 1rem 1rem;
+
+    @include tablet{
+        @include tPadding-Sides;
+        @include tHeadPadding-Bottom;
+    }
+
+    @include desktop{
+        @include dPadding-Sides;
+        @include tHeadPadding-Bottom;
+    }
+
+    &__header{
+        @include mHeadPadding-Top;
+        font:$mSection-Header;
+        margin:0;
+
+        @include tablet{
+            font: $tSection-Header;
+            font-weight: 600;
+        }
+        
+    }
+
+    &__container{
+        @include flex;
+        flex-direction: column;
+
+        @include tablet{
+            margin: 0 4rem;
+        }
+
+        @include desktop{
+            margin: 0 12rem;
+        }
+    }
+
+    &__card{
+        @include flex;
+        border-bottom: $mDivider;
+    }
+    
+    &__text-container{
+        width: 100%;
+        padding: 0.875rem;
+
+    }
+
+    &__user-date-container{
+        @include flex;
+        width: 100%;
+        padding: .5rem 0;
+        align-items: flex-end;
+        justify-content: space-between;
+
+    }
+    &__user{
+        @include flex;
+        margin:$No-Margin;
+        font: $mSubheader;
+        color:$BandSite-Black;
+
+        @include tablet{
+            font: $tBodyCopy;
+            font-weight: 600;
+        }
+    }
+
+    &__date{
+        font: $mCopy;
+        color: $Silver;
+
+        @include tablet{
+            font: $tBodyCopy;
+        }
+    }
+
+    &__content{
+        @include mContentPadding-Bottom;
+        font: $mCopy;
+        margin:$No-Margin;
+        padding: 0;
+
+        @include tablet{
+            font: $tBodyCopy;
+        }
+    }
+
+    &__avatar-container{
+        @include flex;
+        padding-top: 1.5rem;
+    }
+
+    &__avatar-default{
+        background-color: $Mercury;
+        border-radius: 50%;
+        width: 2.25rem;
+        height: 2.25rem;
+
+        @include tablet{
+            width: 3rem;
+            height: 3rem;
+        }
+  
+    }
+}
+
+.form{
+    @include flex;
+    border-bottom: $mDivider;
+
+        @include tablet{
+            margin: 0 4rem;
+        }
+
+        @include desktop{
+            margin: 0 12rem;
+        }
+
+    &__avatar{
+        @include flex;
+        background-image: url(../assets/images/Mohan-muruge.jpg);
+        background-size: cover;
+        background-position: 20% 50%;
+        background-repeat: no repeat;
+        border-radius: 50%;
+        width: 2.25rem;
+        height: 2.25rem;
+
+        @include tablet{
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        &-container{
+            @include flex;
+            padding-top:40px;
+            
+        }
+        
+    }
+
+    &__button-container{
+        @include flex;
+        width: 100%;
+
+        @include tablet{
+            justify-content: flex-end;
+            margin: 0.8rem 0;
+        }
+        
+    }  
+
+    &__comment-container{
+        @include flex;
+        flex-direction: column;
+        width: 100%;
+        padding-left: 0.875rem;
+
+    }
+
+    &__header{
+        font:$mLabelsButtons;
+        font-weight: normal;
+        color: $Silver;
+        padding-top: 1rem;
+        padding-bottom: 4px;
+
+            @include tablet{
+                padding-top: 2rem;
+                font: $tLabelsButtons;
+                font-weight: normal;
+            }
+        
+    }
+
+    &__field{
+        border-radius: 4px;
+        min-height: 36px;
+        border: 1px solid $Mercury;
+
+        &--error{
+            border-color:$Error;
+        }
+
+        &:focus{
+            outline: none;
+            border: 1px solid $BandSite-Black;
+        }
+
+        &::placeholder{
+            padding-left: 1rem;
+            font:$mCopy;
+
+            @include tablet{
+                font: $tBodyCopy;
+            }
+
+        }
+         
+    }
+
+    
+    #input{
+        height:7rem;
+    }
+
+    #form__button{
+        width: 100%;
+        margin: 1rem 0;
+        padding: 0.5rem 2rem;
+        border: none;
+        border-radius: 4px;
+        background-color:$BandSite-Black;
+        font: $mLabelsButtons;
+        color: $Mercury;
+        height: 2.5rem;
+        min-width: 9.375rem;
+
+        &:hover{
+            background-color: $BandSite-Dark;
+        }
+
+        @include tablet{
+            font: $tLabelsButtons;
+            font-weight: 600;
+            min-width: 9.375rem;
+            width: 25%;
+            
+        }
+    }
+}
+
+
