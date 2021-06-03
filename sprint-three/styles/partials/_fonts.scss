@@ -1,0 +1,39 @@
+@use "./colors" as *;
+
+@font-face{
+    font-family:"Avenir";
+    src: url(../../assets/fonts/AvenirNextLTPro-Regular.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Avenir";
+    src: url(../../assets/fonts/AvenirNextLTPro-Demi.otf);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face{
+    font-family:"Avenir";
+    src: url(../../assets/fonts/AvenirNextLTPro-Bold.otf);
+    font-weight: bold;
+    font-style: normal;
+}
+
+// ---- Mobile ---- //
+$mPage-Header: 700 1.5rem/2.125rem "Avenir";
+$mSection-Header: 700 1.5rem/2.125rem "Avenir";
+$mSubheader: 600 0.875rem/1.375rem "Avenir";
+$mCopy: 400 0.813rem/1.375rem "Avenir";
+$mLabelsButtons: 700 0.625rem/1.25rem "Avenir";
+
+
+// ---- Tablet/Desktop ---- //
+
+$tPage-Header: 700 3.75rem/4.25rem "Avenir";
+$tSection-Header: 700 2.25rem/2.75rem "Avenir";
+$tSubHeader: 600 1.5rem/2rem "Avenir";
+$tBodyCopy: 400 0.875rem/1.375rem "Avenir";
+$tFooterCopy: 400 0.875rem/1.25rem "Avenir";
+$tLabelsButtons: 700 0.75rem/1.25rem "Avenir";

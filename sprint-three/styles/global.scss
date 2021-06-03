@@ -1,0 +1,328 @@
+@use "./partials/colors" as *;
+@use "./partials/mixins" as *;
+@use "./partials/variables" as *;
+@use "./partials/fonts" as *;
+
+
+*{
+    box-sizing: border-box;
+    // overflow-x: hidden;
+}
+
+body{
+    margin:0;
+}
+
+
+.main-nav{
+    @include flex;
+    flex-direction: column;
+    background-color:$BandSite-Black;
+    height: 100%;
+    width: 100%;
+
+    @include tablet{
+        flex-direction: row;
+    }
+
+    &__logo{
+        @include flex;
+        @include flex-center;
+        @include mHeadPadding-Top;
+        @include mHeadPadding-Bottom;        
+        max-width: 100%;
+
+            @include tablet{
+                @include tPadding-Sides;
+            }
+
+            @include desktop{
+                padding: 2rem 2rem 2rem 7rem;
+            }
+        
+    }
+
+    &__logo-link{
+        text-decoration: none;
+    }
+
+    &__logo-img{
+        max-width: 120px;
+        max-height: 20px;
+    }
+
+    &__container{
+        @include flex;
+    }
+
+    &__item{
+        @include flex;
+        @include no-dots;
+        @include mContentPadding-Bottom;
+        margin:0;
+        width: 100%;
+        justify-content: space-around;
+        border-bottom: 0.188rem solid $BandSite-Black;
+
+            @include tablet{
+                @include flex;
+                padding: 0;
+                margin: 0 1.5rem;
+                align-items: center;
+            }
+        
+        &:hover{
+            border-bottom: 0.188rem solid $White;
+        }
+
+        &--active{
+            border-bottom: 0.188rem solid $White;
+        }
+        &--inactive{
+            border-bottom: 0.188rem solid $BandSite-Black;
+        }       
+    }
+    
+    &__link{
+        @include no-text-decoration;
+        font-family: "Avenir";
+        font-size: 1rem;
+        color: $White;
+
+        &:hover{
+            color: $White;
+        }
+
+        &--active{
+            font-weight: 600;
+        }
+        
+        &--inactive{
+            color:$Mercury;
+        }
+    }
+}
+
+.hero{
+    @include flex;
+    position: relative;
+    height: 40vh;
+    width: 100%;
+
+        @include tablet{
+            height: 60vw;
+        }
+
+        @include desktop{
+            height: 40vw;
+        }
+
+    &__background--img{
+        background-image: url(../assets/images/hero-bio.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no repeat;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        }
+        
+        &__background--shows{
+            background-image: url(../assets/images/hero-shows.jpg)
+
+    }
+    &__background--color{
+        position: absolute;
+        background-color: $BandSite-Black;
+        margin:0;
+        opacity: 50%;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+    }
+    &__title{
+        @include flex;
+        align-items: center;
+        position: absolute;
+        color: $White;
+        font: $mPage-Header;
+        padding:4rem 1rem;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10;
+
+        @include tablet{
+            @include tPadding-Sides;
+            font: $tPage-Header;
+        }
+        
+        @include desktop{
+            @include dPadding-Sides;
+        }
+    }
+}
+
+.footer{
+    @include mHeadPadding-Top;
+    @include Padding-Sides;
+    @include mHeadPadding-Bottom;
+    background-color:$BandSite-Black;
+    width: 100%;
+    height: auto;
+
+        @include tablet{
+            @include tHeadPadding-Top;
+            @include tPadding-Sides;
+            @include tHeadPadding-Bottom;
+            position: relative;
+        }
+
+        @include desktop{
+            @include dPadding-Sides;
+        }
+
+    &__social{
+        @include flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+
+        @include tablet{
+            @include flex;
+            flex-direction: row;
+            align-items: baseline;
+        }
+
+        &-header{
+            @include mHeadPadding-Bottom;
+            font: $mSection-Header;
+            color: $White;
+            margin: $No-Margin;
+
+            @include tablet{
+                font: $tSection-Header;
+                padding-right: 2rem;
+            }
+        }
+
+        &-icons{
+            @include flex;
+            width: 50%;
+            max-width: 150px;
+            height: auto;
+            justify-content: space-between;
+        }
+
+        &-img{
+            width: 1.5rem;
+            height: 1.5rem;
+
+            @include tablet{
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    }
+    
+    &__cards-container{
+        @include flex;
+        flex-direction: column;
+
+        @include tablet{
+            @include flex;
+            flex-direction: row;
+            width: 100%;
+        }
+    }
+    
+    &__cards{
+        @include flex;
+        flex-direction: column;
+        color: $White;
+        
+        @include tablet;
+            margin-right: 3.5rem;
+
+        &-title{
+            @include mHeadPadding-Top;
+            font: $mSubheader;
+            margin: $No-Margin;
+            
+            @include tablet{
+                font: $tFooterCopy;
+                font-weight: 600;
+            }
+
+            &--padding{
+                @include mContentPadding-Bottom;
+                padding-top:0;
+
+                @include tablet{
+                    padding:0;
+                }
+            }
+        }
+        
+        &-body{
+            @include mContentPadding-Bottom;
+            font: $mCopy;
+            margin: $No-Margin;
+            width: 100%;
+
+            @include tablet{
+                font: $tFooterCopy;
+                padding: 0;
+            }
+            
+            &--padding{
+                padding:0;
+
+                @include tablet{
+                    @include tContentPadding-Top;
+                }
+            }
+
+        }
+        
+    }  
+
+    &__logo{
+        @include mContentPadding-Bottom;
+        padding-top: 4rem;
+        width: 100%;
+
+        @include tablet{
+            padding: 0;
+        }
+    }
+
+    &__logo-link{
+        text-decoration: none;
+    }
+
+    &__logo-img{
+        width: 120px;
+        height: 20px;
+
+        @include tablet{
+            position: absolute;
+            top: 3.5rem;
+            right: 2.5rem;
+        }
+
+        @include desktop{
+            right: 7rem;
+        }
+    }
+    
+    &__copyright{
+        font:$mCopy;
+        color:$White;
+        margin: $No-Margin;
+
+        @include tablet{
+            @include tHeadPadding-Top;
+        }
+    }
+}
