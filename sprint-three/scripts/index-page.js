@@ -68,7 +68,7 @@ const footer = document.querySelector("footer")
     labelComm.setAttribute("for", "input")
     formCommentContainer.append(labelComm)
 
-    let inputComm = newElementId("input", "form__input")
+    let inputComm = newElementId("textarea", "form__input")
     inputComm.classList.add("form__field")
     inputComm.setAttribute("type", "text")
     inputComm.setAttribute("id", "input")
@@ -123,6 +123,9 @@ const getComments = () =>{
         .get(`${apiUrl}comments${apiKey}`)
         .then(response => {
             const commentsArray = response.data;
+            commentsArray.sort((a,b) =>{
+                return b.timestamp - a.timestamp});
+
             commentsArray.forEach(comment=>{
                 {
                     const commentCard = newElementClass("article", "comment__card");
@@ -138,7 +141,7 @@ const getComments = () =>{
                     cardUserDateContainer.append(cardUser);
                     
                     let cardDate = newElementClass("span", "comment__date");
-                    cardDate.innerText = comment.timestamp;
+                    cardDate.innerText = new Date(comment.timestamp).toLocaleDateString("en-us", {day: "2-digit", month: "2-digit", year: "numeric"});
                     cardUserDateContainer.append(cardDate);
                     
                     let cardComment = newElementClass("p", "comment__content");
@@ -152,8 +155,10 @@ const getComments = () =>{
                     formDefaultAvatarContainer.append(cardAvatar);
                     
                     commentContainerDiv.append(commentCard);
+
                 }
             })
+
         })
 }
 
@@ -164,14 +169,10 @@ let nameBox = document.getElementById("userName");
 let inputBox = document.getElementById("input");
 
 
-let currentDate = new Date();
-
 const displayComment = (event) =>{
     event.preventDefault();
 
     let success = false;
-
-    commentContainerDiv.innerHTML = "";
 
     // Check comment box to be empty, either full, both full
 
@@ -195,6 +196,7 @@ const displayComment = (event) =>{
     }
     
     if (success) {
+        commentContainerDiv.innerHTML = "";
         axios
             .post(`${apiUrl}comments${apiKey}`, {
                 "name":event.target.userName.value,

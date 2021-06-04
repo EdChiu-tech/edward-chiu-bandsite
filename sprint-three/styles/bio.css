@@ -420,6 +420,7 @@
 }
 .form #input {
   height: 7rem;
+  resize: none;
 }
 .form #form__button {
   width: 100%;

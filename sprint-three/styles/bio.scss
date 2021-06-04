@@ -370,6 +370,7 @@
         min-height: 36px;
         border: 1px solid $Mercury;
 
+
         @include tablet{
             min-height: 48px;
         }
@@ -397,6 +398,7 @@
 
     #input{
         height:7rem;
+        resize: none;
     }
 
     #form__button{
