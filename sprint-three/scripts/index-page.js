@@ -143,10 +143,7 @@ const getComments = () =>{
                     axios
                         .put(`${apiUrl}comments/${id}/like${apiKey}`)
                         .then(response =>{
-                        // commentContainerDiv.innerHTML = "";
-                        // getComments();
                         event.srcElement.innerText = (`${response.data.likes}`)
-                        console.log(response.data.likes)
                         })
                         .catch(error =>{
                             console.log(error)

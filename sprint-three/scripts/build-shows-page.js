@@ -28,47 +28,6 @@ const showsHeader= newElementClass("h2", "shows__header")
 showsHeader.innerText= "Shows"
 shows.append(showsHeader);
 
-// Shows array
-
-// let showsArray = [
-//     {
-//         dates: "Mon Sept 06 2021",
-//         venue: "Ronald Lane",
-//         location: "San Francisco, CA",
-//         class: "object--show",
-//      },
-//      {
-//         dates: "Tue Sept 21 2021",
-//         venue: "Pier 3 East",
-//         location: "San Francisco, CA",
-//         class: "object--hidden",
-//      },
-//      {
-//         dates: "Fri Oct 15 2021",
-//         venue: "View Lounge",
-//         location: "San Francisco, CA",
-//         class: "object--hidden",
-//     },
-//     {
-//         dates: "Sat Nov 06 2021",
-//         venue: "Hyatt Agency",
-//         location: "San Francisco, CA",
-//         class: "object--hidden",
-//     },
-//     {
-//         dates: "Fri Nov 26 2021",
-//         venue: "Moscow Center",
-//         location: "San Francisco, CA",
-//         class: "object--hidden",
-//     },
-//     {
-//         dates: "Wed Dec 15 2021",
-//         venue: "Press Club",
-//         location: "San Francisco, CA",
-//         class: "object--hidden",
-//     },
-// ]
-
 // Container for shows
 
 const showsContainer = newElementClass("div", "shows__container")

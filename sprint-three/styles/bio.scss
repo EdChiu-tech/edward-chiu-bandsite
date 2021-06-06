@@ -212,6 +212,8 @@
     &__container{
         @include flex;
         flex-direction: column;
+        height: 60vh;
+        overflow-y: scroll;
 
         @include tablet{
             margin: 0 4rem;
