@@ -29,11 +29,11 @@ const footer = document.querySelector("footer")
     commentHeader.innerText= "Join the Conversation"
     commentDiv.append(commentHeader);
 
-// Form 
+// Form
 
     const form = newElementClass("form", "form")
     commentDiv.append(form);
-    
+
     const formAvatarContainer = newElementClass("div", "form__avatar-container")
     form.append(formAvatarContainer)
 
@@ -44,9 +44,9 @@ const footer = document.querySelector("footer")
     form.append(formCommentContainer)
 
 
-    
 
-// Form - Name  
+
+// Form - Name
 
     let labelName = newElementClass("label", "form__header")
     labelName.innerText = "NAME"
@@ -108,7 +108,7 @@ formCommentContainer.append(formButtonContainer);
 //         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
 //         avatar: "comment__avatar-default"
 //     },
-    
+
 // ]
 
 // Container for all comments
@@ -127,42 +127,73 @@ const getComments = () =>{
                 return b.timestamp - a.timestamp});
 
             commentsArray.forEach(comment=>{
-                {
-                    const commentCard = newElementClass("article", "comment__card");
-            
-                    let cardTextContainer = newElementClass("div", "comment__text-container")
-                    commentCard.append(cardTextContainer);
-                    
-                    let cardUserDateContainer = newElementClass("div", "comment__user-date-container")
-                    cardTextContainer.append(cardUserDateContainer)
-            
-                    let cardUser = newElementClass("h3", "comment__user");
-                    cardUser.innerText = comment.name;
-                    cardUserDateContainer.append(cardUser);
-                    
-                    let cardDate = newElementClass("span", "comment__date");
-                    cardDate.innerText = new Date(comment.timestamp).toLocaleDateString("en-us", {day: "2-digit", month: "2-digit", year: "numeric"});
-                    cardUserDateContainer.append(cardDate);
-                    
-                    let cardComment = newElementClass("p", "comment__content");
-                    cardComment.innerText = comment.comment;
-                    cardTextContainer.append(cardComment);
-            
-                    let formDefaultAvatarContainer = newElementClass ("div", "comment__avatar-container")
-                    cardTextContainer.insertAdjacentElement("beforebegin",formDefaultAvatarContainer)
-            
-                    let cardAvatar = newElementClass("div","comment__avatar-default");
-                    formDefaultAvatarContainer.append(cardAvatar);
-                    
-                    commentContainerDiv.append(commentCard);
+                
+                const commentCard = newElementClass("article", "comment__card");
 
-                }
+                let cardTextContainer = newElementClass("div", "comment__text-container")
+                commentCard.append(cardTextContainer);
+
+                let cardUserDateContainer = newElementClass("div", "comment__user-date-container")
+                cardTextContainer.append(cardUserDateContainer)
+
+                let cardUser = newElementClass("h3", "comment__user");
+                cardUser.innerText = comment.name;
+                cardUserDateContainer.append(cardUser);
+
+                let cardDate = newElementClass("span", "comment__date");
+                cardDate.innerText = new Date(comment.timestamp).toLocaleDateString("en-us", {day: "2-digit", month: "2-digit", year: "numeric"});
+                cardUserDateContainer.append(cardDate);
+
+                let commentContent = newElementClass("p", "comment__content");
+                commentContent.innerText = comment.comment;
+                cardTextContainer.append(commentContent);
+
+                let formDefaultAvatarContainer = newElementClass ("div", "comment__avatar-container")
+                cardTextContainer.insertAdjacentElement("beforebegin",formDefaultAvatarContainer)
+
+                let cardAvatar = newElementClass("div","comment__avatar-default");
+                formDefaultAvatarContainer.append(cardAvatar);
+
+                let buttonContainer = newElementClass("div", "comment__button-container");
+                commentCard.append(buttonContainer);
+                
+                const id = comment.id
+                let likeButton = newElementClass("button","like__button");
+                likeButton.innerText = `Likes: ${comment.likes}`
+
+                // let like = document.querySelector(".like__button");
+                likeButton.addEventListener("click", event=>{
+                        axios
+                            .put(`${apiUrl}comments/${id}/like${apiKey}`)
+                            .then(response =>{
+                            event.srcElement.innerText = (`Likes: ${response.data.likes}`)
+                            })
+                    })
+                
+                let deleteButton = newElementClass("button","delete__button");
+                deleteButton.innerText = "Delete"
+
+                deleteButton.addEventListener("click", event=>{
+                    commentCard.remove()
+                    axios
+                    .delete(`${apiUrl}comments/${id}${apiKey}`)
+                    .then(response =>{
+                        console.log(response)
+                        getComments();
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
+                })
+                buttonContainer.append(likeButton);
+                buttonContainer.append(deleteButton);
+                commentContainerDiv.append(commentCard);
             })
-
-        })
+    })
 }
 
 getComments();
+
 
 const formContainer = document.querySelector(".form")
 let nameBox = document.getElementById("userName");
@@ -172,20 +203,31 @@ let inputBox = document.getElementById("input");
 const displayComment = (event) =>{
     event.preventDefault();
 
-    let success = false;
-
     // Check comment box to be empty, either full, both full
 
     if(nameBox.value !== "" && inputBox.value !== ""){
         nameBox.classList.remove("form__field--error")
         inputBox.classList.remove("form__field--error")
-        success = true;
-        
+            commentContainerDiv.innerHTML = "";
+            axios
+                .post(`${apiUrl}comments${apiKey}`, {
+                    "name":event.target.userName.value,
+                    "comment": event.target.input.value,
+                })
+                .then(response =>{
+                    console.log("post successful", response);
+                    getComments();
+                })
+                .catch(error => {
+                    event.target.userName.classList.add("form__field--error")
+                    console.log(`name and comment must be included: ${error}`)
+                })
+
     }else if (nameBox.value === "" && inputBox.value !==""){
         nameBox.classList.add("form__field--error")
         inputBox.classList.remove("form__field--error")
 
-    
+
     }else if (inputBox.value === "" && nameBox.value !==""){
         inputBox.classList.add("form__field--error")
         nameBox.classList.remove("form__field--error")
@@ -194,23 +236,10 @@ const displayComment = (event) =>{
         inputBox.classList.add("form__field--error")
         nameBox.classList.add("form__field--error")
     }
-    
-    if (success) {
-        commentContainerDiv.innerHTML = "";
-        axios
-            .post(`${apiUrl}comments${apiKey}`, {
-                "name":event.target.userName.value,
-                "comment": event.target.input.value,
-            })
-            .then(response =>{
-                console.log(response);
-                getComments();
-            })
-            .catch(error => console.log(error));
-    }
 
     formContainer.reset();
 }
+
 
 formContainer.addEventListener("submit", displayComment);
 
@@ -223,3 +252,61 @@ formContainer.addEventListener("submit", displayComment);
         // //  pushes new comment into array, and removes last comment
         // commentsArray.unshift(userComment);
         // commentsArray.pop();
+
+        // const displayComment = (event) =>{
+        //     event.preventDefault();
+
+        //     let success = false;
+
+        //     // Check comment box to be empty, either full, both full
+
+        //     if(nameBox.value !== "" && inputBox.value !== ""){
+        //         nameBox.classList.remove("form__field--error")
+        //         inputBox.classList.remove("form__field--error")
+        //         success = true;
+
+        //     }else if (nameBox.value === "" && inputBox.value !==""){
+        //         nameBox.classList.add("form__field--error")
+        //         inputBox.classList.remove("form__field--error")
+
+
+        //     }else if (inputBox.value === "" && nameBox.value !==""){
+        //         inputBox.classList.add("form__field--error")
+        //         nameBox.classList.remove("form__field--error")
+
+        //     }else{
+        //         inputBox.classList.add("form__field--error")
+        //         nameBox.classList.add("form__field--error")
+        //     }
+
+        //     if (success) {
+        //         commentContainerDiv.innerHTML = "";
+        //         axios
+        //             .post(`${apiUrl}comments${apiKey}`, {
+        //                 "name":event.target.userName.value,
+        //                 "comment": event.target.input.value,
+        //             })
+        //             .then(response =>{
+        //                 console.log(response);
+        //                 getComments();
+        //             })
+        //             .catch(error => console.log(`name and comment must be included: ${error}`));
+        //     }
+
+        //     formContainer.reset();
+        // }
+
+        // formContainer.addEventListener("submit", displayComment);
+
+                // likeButtonAll.addEventListener("click", (event => {
+        // const id = event.target.id
+        // axios
+        //     .put(`${apiUrl}comments/:${id}/like${apiKey}`)
+        //     .then(response =>{
+        //         console.log("liked", response)
+        //         getComments();
+        //     })
+        //     .catch(error =>{
+        //         console.log(error)
+        //     })
+        // }))   

@@ -123,12 +123,12 @@ const getShows = () =>{
 
             let showsButton = newElementClass("button","shows__button");
 
-            showsButton.setAttribute("value", `${show.place}, ${show.location}`);
+            showsButton.setAttribute("data-value", `${show.place}, ${show.location}`);
             showsButton.addEventListener("click", event =>{
-            // console.log(event.srcElement.value)
-            console.log(event.path[1].children[1].children[1].innerText)
+            console.log(event.srcElement.dataset.value)
             })
             
+
             showsButton.innerText = "BUY TICKETS"
             showsCard.append(showsButton)
             

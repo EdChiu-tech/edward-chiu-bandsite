@@ -366,12 +366,14 @@
     }
 
     &__field{
+        font: $mCopy;
         border-radius: 4px;
         min-height: 36px;
         border: 1px solid $Mercury;
 
 
         @include tablet{
+            font: $tBodyCopy;
             min-height: 48px;
         }
 
